@@ -1,5 +1,5 @@
-from flask_sqlalchemy import SQLAlchemy     #SQLAlchemy class
-from flask_login import UserMixin           #UserMixin class for Flask-User.
+from flask_sqlalchemy import SQLAlchemy
+from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
@@ -18,12 +18,12 @@ class Employee(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
     employee_number = db.Column(db.Integer, nullable=False, unique=True)
-    hahed_password = db.Column(db.String(255), nullable=False)
+    hashed_password = db.Column(db.String(255), nullable=False)
 
     # Log in methods
     @property
     def password(self):
-        return self.hahed_password
+        return self.hashed_password  # Use the correct attribute name
 
     @password.setter
     def password(self, password):
