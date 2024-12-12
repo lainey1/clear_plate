@@ -9,9 +9,9 @@ python-dotenv = "*"
 sqlalchemy = "*"
 flask-sqlalchemy = "*"
 wtforms = "*"
+werkzeug = "==2.3"
 flask-wtf = "*"
 flask-login = "*"
-werkzeug = "==2.3"
 
 [dev-packages]
 pylint = "*"
