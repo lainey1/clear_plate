@@ -1,9 +1,9 @@
 from flask import Blueprint
 
-# Create a new Blueprint instance (named "index", module_name for locating, URL path prefix)
+# New Blueprint instance (<"name">, __name__ for locating, url_prefix)
 bp = Blueprint("orders", __name__, url_prefix="")
 
 # Route: index
 @bp.route("/")
 def index():
-    return "Order Up!"
+    return "Clear That Plate!"

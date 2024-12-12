@@ -1,0 +1,12 @@
+<html>
+  <head>
+    {% if title %}
+    <title>{{ title }} - Clear Plate!</title>
+    {% else %}
+    <title>Welcome to Clear Plate!</title>
+    {% endif %}
+  </head>
+  <body>
+    {% block content %}{% endblock %}
+  </body>
+</html>

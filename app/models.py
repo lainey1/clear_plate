@@ -18,7 +18,7 @@ class Employee(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
     employee_number = db.Column(db.Integer, nullable=False, unique=True)
-    hahed_password= db.Column(db.String(255), nullable=False)
+    hahed_password = db.Column(db.String(255), nullable=False)
 
     # Log in methods
     @property
