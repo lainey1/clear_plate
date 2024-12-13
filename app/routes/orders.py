@@ -1,9 +1,12 @@
-from flask import Blueprint
+from flask import Blueprint, render_template
+from flask_login import login_required
+from ..templates import *
 
-# Create a new Blueprint instance (named "index", module_name for locating, URL path prefix)
+# New Blueprint instance (<"name">, __name__ for locating, url_prefix)
 bp = Blueprint("orders", __name__, url_prefix="")
 
 # Route: index
 @bp.route("/")
+@login_required
 def index():
-    return "Order Up!"
+    return render_template("orders.html")

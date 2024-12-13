@@ -1,0 +1,31 @@
+{% extends "base.html" %} {% block content %}
+<form method="post" action="{{ url_for('.login') }}" class="form">
+  {{ form.csrf_token }}
+  <div class="input">
+    {{ form.employee_number.label }} {{ form.employee_number }} {% if
+    form.employee_number.errors %}
+    <ul>
+      {% for error in form.employee_number.errors %}
+      <li>{{ error }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+  <div class="input">
+    {{ form.password.label }} {{ form.password }} {% if
+    form.employee_number.errors %}
+    <ul>
+      {% for error in form.employee_number.errors %}
+      <li>{{ error }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+  <div class="login-layer">
+    <div class="button">{{ form.submit }}</div>
+    <p>
+      <b>Demo Application: </b>Enter "1234" for employee number and "password".
+    </p>
+  </div>
+</form>
+{% endblock %}
