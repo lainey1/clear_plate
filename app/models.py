@@ -1,29 +1,23 @@
-from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin
+from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 
-
 db = SQLAlchemy()
-'''
-Initialize the SQLAlchemy object for interacting with the database.
-    - provides ORM capabilities to define models, query the database, and manage sessions.
-    - will be bound to the Flask app later using db.init_app(app).
-'''
 
 
 class Employee(db.Model, UserMixin):
     __tablename__ = 'employees'
 
-    # Mapping attributes here
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
     employee_number = db.Column(db.Integer, nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
 
-    # Log in methods
+    orders = db.relationship('Order', back_populates='employee', cascade='all, delete-orphan')
+
     @property
     def password(self):
-        return self.hashed_password  # Use the correct attribute name
+        return self.hashed_password
 
     @password.setter
     def password(self, password):
@@ -31,6 +25,8 @@ class Employee(db.Model, UserMixin):
 
     def check_password(self, password):
         return check_password_hash(self.password, password)
+
+
 
 # Menu Model
 class Menu(db.Model):
@@ -54,7 +50,6 @@ class MenuItem(db.Model):
     type = db.relationship('MenuItemType', back_populates='items')
     order_details = db.relationship('OrderDetail', back_populates='menu_item', cascade='all, delete-orphan')
 
-
 # MenuItemType Model
 class MenuItemType(db.Model):
     __tablename__ = 'menu_item_types'
@@ -62,6 +57,7 @@ class MenuItemType(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(20), nullable=False)
     items = db.relationship('MenuItem', back_populates='type')
+
 
 # Table Model
 class Table(db.Model):
