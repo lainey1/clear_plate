@@ -4,7 +4,7 @@ load_dotenv()
 
 
 from app import app, db
-from .app.models import Employee
+from app.models import Employee
 
 with app.app_context():
     # Drop all existing tables

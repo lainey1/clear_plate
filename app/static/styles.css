@@ -1,0 +1,101 @@
+body {
+  background-color: black;
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+}
+
+/* Top Bar Styles */
+.top-bar {
+  display: flex;
+  justify-content: space-between; /* Distribute space between items */
+  align-items: center; /* Vertically align items in the center */
+  background-color: orange;
+  color: black;
+  padding: 1em; /* Add padding to give some space around the content */
+}
+
+.top-bar header {
+  display: flex;
+  align-items: center; /* Align logo and text vertically */
+  flex: 1; /* Allow the header to take available space */
+}
+
+.logo {
+  height: 48px;
+  margin-right: 1em; /* Add space between logo and the h1 text */
+}
+
+header h1 {
+  margin: 0; /* Remove default margin from the header */
+}
+
+/* Nav for logout button */
+nav {
+  display: flex;
+  justify-content: flex-end; /* Align logout button to the right */
+}
+
+button[type="submit"],
+input[type="submit"] {
+  background-color: black; /* Black background */
+  color: white; /* White text */
+  border: none; /* Remove default border */
+  border-radius: 1em;
+  padding: 0.5em 1em;
+  font-size: 1em; /* Font size */
+  cursor: pointer; /* Show pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+/* Add hover effect */
+button[type="submit"]:hover,
+input[type="submit"]:hover {
+  background-color: #333; /* Darker shade of black on hover */
+}
+
+#button-logout {
+  padding: 0.5em 1em;
+  margin-right: 1em; /* Adds margin between the button and edge */
+}
+
+.logout-form {
+  margin: 0; /* Removes any form default margin */
+}
+
+.login-layer {
+  display: flex; /* Use flexbox for layout */
+  flex-direction: row; /* Arrange children (button and paragraph) in a row */
+  align-items: center; /* Vertically center the items */
+  justify-content: space-between; /* Add space between the children */
+  width: 100%; /* Make sure the container spans the full width */
+}
+
+.button {
+  margin-right: 20px; /* Add space between button and paragraph */
+}
+
+p {
+  margin: 0; /* Remove any default margin from <p> */
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  max-width: 500px;
+
+  margin: 3em auto;
+  padding: 20px;
+
+  color: black;
+  background-color: orange;
+
+  border-radius: 25px;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
